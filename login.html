@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="images/vecteezy_animated-flying-through-the-stars-and-blue-nebula-in-space_8078506.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="login-card">
+        <h2>Login</h2>
+        <div class="toggle-container">
+            <button id="studentBtn" class="toggle-btn active">Student</button>
+            <button id="teacherBtn" class="toggle-btn">Teacher</button>
+        </div>
+
+        <form id="studentForm" class="form active">
+            <input type="text" id="studentEmail" placeholder="Student ID">
+            <input type="password" id="studentPassword" placeholder="Password">
+            <button type="submit" id="studentLogin" onclick="loginStudent()">Login as Student</button>
+        </form>
+
+        <form id="teacherForm" class="form">
+            <input type="text" id="teacherEmail" placeholder="Employee ID">
+            <input type="password" id="teacherPassword" placeholder="Password">
+            <button type="submit" id="teacherLogin" onclick="loginTeacher()">Login as Teacher</button>
+        </form>
+    </div>
+
+    <!-- <a href="index.html" class="home-button">Back to Home</a> -->
+    <a href="/index.html" class="icon login-icon"><i class="fas fa-sign-in-alt"></i></a>
+
+
+    <script src="loginScript.js"></script>
+</body>
+</html>

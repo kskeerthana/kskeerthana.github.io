@@ -1,0 +1,514 @@
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Consistent font family */
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    color: #fff; 
+    overflow-x: hidden;
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+    background: no-repeat;
+    background-size: cover;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0); /* Transparent initially */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.login-button {
+    background-color: #3ac462;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 20px;
+    right: 40px; /* Position on the top right for large screens */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.section {
+    width: 80%; 
+    min-height: 100vh; /* Full viewport height */
+    margin: 0 auto; /* Centered horizontally */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 80px; /* Top padding to ensure space below the header */
+    box-sizing: border-box; /* Includes padding in the height calculation */
+}
+
+/* Specific styles for the 'about' section */
+.about .content, .image-grid {
+    width: 45%; /* Keeping consistent styling */
+}
+
+.about .content {
+    font-size: 40px;
+    font-weight: 700;
+    background: -webkit-linear-gradient(45deg, #3ac462, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-family: sans-serif;
+animation: slideFromLeft 1s ease-out forwards;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+animation: slideFromRight 1s ease-out forwards;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+}
+
+.impact {
+    text-align: center;
+    color: #fff; /* White text */
+    padding: 10px 0; /* Padding adjusted */
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.heading {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px; /* Added some bottom margin for spacing */
+}
+
+.impact-heading {
+    font-size: 20px;
+    color: #3ac462; /* Green color for the heading text */
+}
+
+.impact-subheading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0; /* Reduced space below the subheading */
+}
+
+.impact-counters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 150px; /* Spacing between counters */
+    margin: 0; /* No additional margin */
+    padding: 0; /* No additional padding */
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.counter #students, #teachers, #courses {
+    font-size: 86px;
+    font-weight: bold; /* Bold font weight */
+    color: #3ac462; /* Green color for numbers */
+    text-align: center;
+    animation: pop-in 1.0s ease-out forwards;
+}
+
+.counter p:last-child {
+    font-size: 26px; /* Smaller font size for descriptions */
+    color: #fff; /* White color for text */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; /* Space between images */
+    padding: 40px; /* Padding around the entire grid */
+    margin: 0 auto; /* Centers the grid in the section */
+    width: calc(100% - 80px); /* Adjust width, accounting for padding */
+    max-width: 1200px; /* Optional max width for larger screens */
+}
+
+.gallery-item {
+    background-color: #fff; /* Optional background color */
+    border-radius: 10px; /* Optional border radius for aesthetics */
+    overflow: hidden; /* Ensures no overflow of images outside the container */
+    position: relative; /* Needed for positioning the image */
+    height: 250px; /* Fixed height for all images */
+}
+
+.gallery-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    transition: transform 0.3s ease-in-out; /* Smooth transformation for hover effects */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); 
+}
+
+
+/* #contact {
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    width: 100%; 
+    max-width: 500px; 
+}
+
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: grey;
+    margin: 20px 0;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+}
+
+button {
+    background-color: #4CAF50; 
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+} */
+
+#contact {
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    text-align: center;
+}
+
+h2 {
+    color: #3ac462; /* Styling the heading */
+    margin-bottom: 20px; /* Space between the heading and the form */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff; /* Adding a background color */
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align form items to the center */
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%; /* Full width of the form container */
+    padding: 10px;
+    margin-bottom: 15px; /* Space between form fields */
+    border: 2px solid #ccc; /* Subtle border */
+    border-radius: 5px;
+}
+
+#contact-form button {
+    width: 50%; /* Width of the button relative to form width */
+    padding: 10px 20px;
+    background-color: #3ac462; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: #2a8b35; /* Darker green on hover */
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: grey;
+    /* margin: 20px 0; */
+}
+
+.footer {
+    color: #fff; 
+    padding: 20px;
+    text-align: center; 
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    /* display: inline-block; */
+    /* padding: 10px 0; */
+}
+
+.social-icons a {
+    margin: 0 15px; /* Spacing between icons */
+    color: #fff; /* Icon color */
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #3ac462; 
+    transform: scale(1.1);
+}
+
+.footer p {
+    margin-top: 10px; 
+    font-size: 14px; 
+}
+
+@media (max-width: 480px) {
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 0;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .login-button {
+        position: static;
+        width: auto; 
+        
+    }
+    section {
+        flex-direction: column;
+        width: 95%; 
+        margin: 60px auto 30px; 
+    }
+
+    .about .content, .image-grid {
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+
+    .about .content {
+        font-size: 20px; 
+        text-align: justify; 
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .impact-counters {
+        flex-direction: column;
+        gap: 30px; /* Smaller gap for vertical layout */
+    }
+
+    .counter {
+        margin: 10px 0; /* Adding top and bottom margin for spacing */
+    }
+
+    .counter #students, #teachers, #courses {
+        font-size: 60px; /* Smaller font size for mobile screens */
+    }
+
+    .counter p:last-child {
+        font-size: 18px; /* Adjusted font size for mobile readability */
+    }
+
+    .impact-heading, .impact-subheading {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* One column for mobile screens */
+        padding: 10px; /* Even smaller padding */
+        width: calc(100% - 20px); /* Adjust width for smaller padding */
+    }
+
+    .gallery-item {
+        height: 150px; /* Further reduced height for very small screens */
+    }
+
+    .form-container {
+        padding: 15px;
+        width: 90%; /* Slightly smaller width on very small screens */
+    }
+
+    #contact-form button {
+        width: 70%; /* Making the button slightly wider on small screens */
+    }
+    .social-icons {
+        flex-direction: column; /* Stack icons vertically on smaller screens */
+        align-items: center; /* Align icons to the center */
+    }
+
+    .social-icons a {
+        margin: 10px 0; /* Adjust margin for vertical stacking */
+    }
+
+    .footer p {
+        font-size: 12px; /* Slightly smaller text on small screens */
+    }
+
+}
+
+@media (min-width: 750px) and (max-width: 950px) {
+    .impact-counters {
+        flex-direction: column; /* Stack counters vertically for better alignment */
+        align-items: center; /* Center align items to look uniform */
+        gap: 40px; /* Increase gap between counters for visual separation */
+    }
+
+    .counter {
+        width: 100%; /* Full width to use the space efficiently */
+        margin-bottom: 20px; /* Space between counters */
+    }
+
+    .counter #students, #teachers, #courses {
+        font-size: 60px; /* Adjusted font size for medium screens */
+    }
+
+    .counter p:last-child {
+        font-size: 18px; /* Smaller font size for descriptions */
+    }
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablet screens */
+        padding: 20px; /* Reduced padding */
+        width: calc(100% - 40px); /* Adjust width for reduced padding */
+    }
+
+    .gallery-item {
+        height: 200px; /* Reduced height for smaller screens */
+    }
+}
+
+
+
+

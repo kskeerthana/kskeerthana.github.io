@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #3ac462, #2575fc);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    position: relative; /* Relative positioning for absolute child elements */
+    padding-top: 50px; /* Space for icons */
+}
+
+.icon {
+    position: absolute;
+    top: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.home-icon {
+    left: 20px; /* Home icon on the top left */
+}
+
+/* .login-icon {
+    right: 10px; 
+} */
+
+.profile-icon {
+    position: absolute;
+    top: 30px;
+    right: 20px; /* Adjust based on your layout */
+    font-size: 30px; /* Icon size */
+    color: #fff; /* Icon color */
+    cursor: pointer;
+}
+
+.profile-icon:hover {
+    color: #ddd; /* Lighter color on hover */
+}
+
+.dashboard {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Adjust grid and other elements as previously defined */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+.grid-item i, .grid-item p {
+    background: linear-gradient(45deg, #3ac462, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}

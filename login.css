@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+    background: no-repeat;
+    background-size: cover;
+}
+.login-card {
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure everything is centered */
+}
+
+.toggle-container {
+    width: 100%; /* Full width to align buttons properly */
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.toggle-btn {
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s;
+    flex-grow: 1; /* Allows the buttons to grow and fill the container */
+    margin: 0 10px; /* Ensures spacing between buttons */
+}
+
+.toggle-btn.active, .toggle-btn:hover {
+    color: #3ac462;
+    background-color: #e6f5f0;
+}
+
+.form {
+    width: 100%; /* Full width of the card for alignment */
+    display: none; /* Hide forms initially */
+}
+
+.form.active {
+    display: flex; /* Show the active form */
+    flex-direction: column;
+    align-items: center; /* Center alignment of all items */
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+button[type="submit"] {
+    width: 90%; /* Slightly less than full width for aesthetic padding */
+    padding: 12px;
+    background-color: #3ac462;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Increased top margin for better spacing from input fields */
+}
+
+button[type="submit"]:hover {
+    background-color: #2a8b35;
+}
+
+.icon {
+    position: absolute;
+    top: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login-icon {
+    left: 30px; 
+}
+
+
+.home-button {
+    display: block;
+    padding: 10px 20px;
+    background-color: #3ac462; /* Example: Green background */
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Removes underline */
+    border-radius: 5px; /* Rounded corners */
+    position: fixed; /* Fixed position ensures it stays in place while scrolling */
+    top: 20px; /* 20px from the top of the viewport */
+    left: 20px; /* 20px from the left of the viewport */
+    z-index: 1000; /* Ensures it's above other content */
+    cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
+}
+
+

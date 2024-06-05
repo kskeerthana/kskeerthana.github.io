@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background: linear-gradient(45deg, #3ac462, #2575fc);  */
+    color: #fff; /* Ensuring text color is white for better visibility */
+    margin: 0;
+    padding: 0;
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+    background: no-repeat;
+    background-size: cover;
+}
+
+.dashboard-container {
+    position: relative; /* Required for absolute positioning of icons */
+    padding-top: 50px; /* Space for icons at the top */
+}
+
+.icon {
+    position: absolute;
+    top: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.home-icon {
+    left: 20px; /* Home icon on the top left */
+}
+
+/* .login-icon {
+    right: 10px; 
+} */
+
+.profile-icon {
+    position: absolute;
+    top: 30px;
+    right: 20px; /* Adjust based on your layout */
+    font-size: 30px; /* Icon size */
+    color: #fff; /* Icon color */
+    cursor: pointer;
+}
+
+.profile-icon:hover {
+    color: #ddd; /* Lighter color on hover */
+}
+
+.dashboard {
+    width: 80%;
+    margin: 50px auto; /* Centering the dashboard within the viewport */
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns layout */
+    gap: 20px; /* Space between grid items */
+    padding: 40px 0;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.grid-item:hover {
+    transform: scale(1.05); /* Slight enlargement on hover for better interaction */
+}
+
+.grid-item i, .grid-item p {
+    background: linear-gradient(45deg, #3ac462, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Applying gradient to text */
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* One column for mobile screens */
+    }
+}
